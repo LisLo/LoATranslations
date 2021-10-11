@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import ContextManager, get_type_hints
+# from typing import ContextManager, get_type_hints
 import kivy
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
@@ -18,7 +18,7 @@ root_path = os.path.split((os.path.dirname(__file__)))[0]
 # set root
 sys.path.append(root_path)
 from Source.Config.get_input import GetInput
-from Source.Services.my_math_methods import MyMethods
+# from Source.Services.my_math_methods import MyMethods
 
 Window.size = (1000, 700)
 Builder.load_string("""
@@ -53,7 +53,7 @@ Builder.load_string("""
             id: btn
             size_hint: (1., 0.5)
             font_size: 30
-            on_release: 
+            on_release:
                 root.loginPopup()
                 root.manager.current = "geheim" if passwort.text == "1234" and benName.text == "Python" else "login"
                 root.manager.transition.direction = "left"
@@ -72,6 +72,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "right"
 """)
 
+
 class Login(Screen):
     ben = StringProperty()
     pw = StringProperty()
@@ -79,9 +80,9 @@ class Login(Screen):
     
     def loginPopup(self):
         if self.ben == "" or self.pw == "":
-            popup = Popup(title="Fehler", 
-            content = Label(text="Es wurde kein Passwort oder Benutzername eingegeben!"),
-            size_hint=(None,None), size=(400,400))
+            popup = Popup(title="Fehler",
+            content = Label(text="Es wurde kein Passwort oder Benutzername eingegeben!"), 
+            size_hint=(None, None), size=(400, 400))
             popup.open()
         else: 
             if self.ben == "Python" and self.pw == "1234":

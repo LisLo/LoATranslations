@@ -13,6 +13,6 @@ class MyMethods():
 
     def square(a):
         return math.pow(a, 2)
-    
+
     def druck(A1):
         return A1
