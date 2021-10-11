@@ -99,6 +99,7 @@ ms = ScreenManager()
 ms.add_widget(Login(name="login"))
 ms.add_widget(geheimerBereich(name="geheim"))
 
+
 class StartApp(App):
     def __get_input(self):
         input = GetInput(__file__)
