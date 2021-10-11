@@ -12,3 +12,5 @@ class GetInput():
         inputs = ReadJson.read_json_parameters(root_path)
         for key, value in inputs.items():
             setattr(self, key, value)
+            print("Eintragungen")
+            print(self)

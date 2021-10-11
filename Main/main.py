@@ -3,6 +3,7 @@ import sys
 from typing import ContextManager, get_type_hints
 import kivy
 from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
@@ -61,7 +62,7 @@ Builder.load_string("""
     BoxLayout:
         orientation: "vertical"
         Label:
-            text: "Geheimer Bereich"
+            text: "geheimer Bereich"
             font_size: 30
         Button:
             text: "zurück"
@@ -93,10 +94,20 @@ class geheimerBereich(Screen):
 
 ms = ScreenManager()
 ms.add_widget(Login(name="login"))
-ms.add_widget(geheimerBereich(geheimerBereich="geheim"))
+ms.add_widget(geheimerBereich(name="geheim"))
+
 class StartApp(App):
+    def __get_input(self):
+        input = GetInput(__file__)
+        for key in dir(input):
+            if key.startswith("__"):
+                continue
+            value = getattr(input, key)
+            setattr(self, key, value)
+
     def build(self):
-        return ms
+       self.__get_input()
+       return ms
 
 if __name__ == "__main__":
     StartApp().run()
