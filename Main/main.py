@@ -77,21 +77,23 @@ class Login(Screen):
     ben = StringProperty()
     pw = StringProperty()
     knopf = ObjectProperty()
-    
+
     def loginPopup(self):
         if self.ben == "" or self.pw == "":
             popup = Popup(title="Fehler",
-            content = Label(text="Es wurde kein Passwort oder Benutzername eingegeben!"), 
+            content = Label(text="Es wurde kein Passwort oder Benutzername eingegeben!"),
             size_hint=(None, None), size=(400, 400))
             popup.open()
-        else: 
+        else:
             if self.ben == "Python" and self.pw == "1234":
                 self.knopf.background_color = [0., 1., 0., 1.]
             else:
                 self.knopf.background_color = [1., 0., 0., 1.]
 
+
 class geheimerBereich(Screen):
     pass
+
 
 ms = ScreenManager()
 ms.add_widget(Login(name="login"))
@@ -109,6 +111,7 @@ class StartApp(App):
     def build(self):
        self.__get_input()
        return ms
+
 
 if __name__ == "__main__":
     StartApp().run()
