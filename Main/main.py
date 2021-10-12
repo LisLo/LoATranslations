@@ -1,18 +1,18 @@
 import os
 import sys
 # from typing import ContextManager, get_type_hints
-import kivy
+# import kivy
 # import Image
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.pagelayout import PageLayout
-from kivy.uix.widget import Widget
+# from kivy.uix.gridlayout import GridLayout
+# from kivy.uix.pagelayout import PageLayout
+# from kivy.uix.widget import Widget
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.graphics import Color, Rectangle
+# from kivy.uix.image import Image
+# from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -27,10 +27,12 @@ from Source.Config.get_input import GetInput
 Window.size = (1000, 1000)
 Builder.load_file("start.kv")
 
+
 class Games(Screen):
     btn1 = ObjectProperty()
     btn2 = ObjectProperty()
     btn3 = ObjectProperty()
+
 
 class Andor1(Screen):
     # Window.size = (700, 1000)
