@@ -2,13 +2,17 @@ import os
 import sys
 # from typing import ContextManager, get_type_hints
 import kivy
+# import Image
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.pagelayout import PageLayout
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -20,57 +24,21 @@ sys.path.append(root_path)
 from Source.Config.get_input import GetInput
 # from Source.Services.my_math_methods import MyMethods
 
-Window.size = (1000, 700)
-Builder.load_string("""
+Window.size = (1000, 1000)
+Builder.load_file("start.kv")
 
-<Login>:
-    ben: benName.text
-    pw: passwort.text
-    knopf: btn
+class Games(Screen):
+    btn1 = ObjectProperty()
+    btn2 = ObjectProperty()
+    btn3 = ObjectProperty()
 
-    GridLayout:
-        cols: 1
-        size: root.width, root.height
-        GridLayout:
-            cols: 2
-            Label:
-                text: "Benutzername"
-                font_size: 30
-            TextInput:
-                id: benName
-                multiline: False
-                font_size: 30
-            Label:
-                text: "Passwort"
-                font_size: 30
-            TextInput:
-                password: True
-                id: passwort
-                multiline: False
-                font_size: 30
-        Button:
-            text: "anmelden"
-            id: btn
-            size_hint: (1., 0.5)
-            font_size: 30
-            on_release:
-                root.loginPopup()
-                root.manager.current = "geheim" if passwort.text == "1234" and benName.text == "Python" else "login"
-                root.manager.transition.direction = "left"
-
-<geheimerBereich>:
-    BoxLayout:
-        orientation: "vertical"
-        Label:
-            text: "geheimer Bereich"
-            font_size: 30
-        Button:
-            text: "zurück"
-            font_size: 30
-            on_release:
-                root.manager.current = "login"
-                root.manager.transition.direction = "right"
-""")
+class Andor1(Screen):
+    # Window.size = (700, 1000)
+    btn_1 = ObjectProperty()
+    btn_2 = ObjectProperty()
+    btn_3 = ObjectProperty()
+    btn_4 = ObjectProperty()
+    btn_5 = ObjectProperty()
 
 
 class Login(Screen):
@@ -96,22 +64,20 @@ class geheimerBereich(Screen):
 
 
 ms = ScreenManager()
+ms.add_widget(Games(name="games"))
+ms.add_widget(Andor1(name="andor1"))
 ms.add_widget(Login(name="login"))
 ms.add_widget(geheimerBereich(name="geheim"))
 
 
-class StartApp(App):
-    def __get_input(self):
-        input = GetInput(__file__)
-        for key in dir(input):
-            if key.startswith("__"):
-                continue
-            value = getattr(input, key)
-            setattr(self, key, value)
+class StartApp(GetInput, App):
+    def __init__(self):
+        super().__init__(__file__)
 
     def build(self):
-       self.__get_input()
-       return ms
+        Window.clearcolor = (1, 1, 1, 1)
+        # print(self.A1)
+        return ms
 
 
 if __name__ == "__main__":
