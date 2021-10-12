@@ -3,16 +3,16 @@ import sys
 # from typing import ContextManager, get_type_hints
 # import kivy
 # import Image
-from kivy.app import App
 # from kivy.uix.gridlayout import GridLayout
 # from kivy.uix.pagelayout import PageLayout
 # from kivy.uix.widget import Widget
+# from kivy.uix.image import Image
+# from kivy.graphics import Color, Rectangle
+from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
-# from kivy.uix.image import Image
-# from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -35,12 +35,39 @@ class Games(Screen):
 
 
 class Andor1(Screen):
-    # Window.size = (700, 1000)
     btn_1 = ObjectProperty()
     btn_2 = ObjectProperty()
     btn_3 = ObjectProperty()
     btn_4 = ObjectProperty()
     btn_5 = ObjectProperty()
+    btn_6 = ObjectProperty()
+
+
+class Andor2(Screen):
+    btn2_1 = ObjectProperty()
+    btn2_2 = ObjectProperty()
+    btn2_3 = ObjectProperty()
+    btn2_4 = ObjectProperty()
+    btn2_5 = ObjectProperty()
+    btn2_6 = ObjectProperty()
+
+
+class Andor3(Screen):
+    btn3_1 = ObjectProperty()
+    btn3_2 = ObjectProperty()
+    btn3_3 = ObjectProperty()
+    btn3_4 = ObjectProperty()
+    btn3_5 = ObjectProperty()
+    btn3_6 = ObjectProperty()
+
+
+class Bonus(Screen):
+    btn4_1 = ObjectProperty()
+    btn4_2 = ObjectProperty()
+    btn4_3 = ObjectProperty()
+    btn4_4 = ObjectProperty()
+    btn4_5 = ObjectProperty()
+    btn4_6 = ObjectProperty()
 
 
 class Login(Screen):
@@ -68,6 +95,9 @@ class geheimerBereich(Screen):
 ms = ScreenManager()
 ms.add_widget(Games(name="games"))
 ms.add_widget(Andor1(name="andor1"))
+ms.add_widget(Andor2(name="andor2"))
+ms.add_widget(Andor3(name="andor3"))
+ms.add_widget(Bonus(name="bonus"))
 ms.add_widget(Login(name="login"))
 ms.add_widget(geheimerBereich(name="geheim"))
 
