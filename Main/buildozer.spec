@@ -280,7 +280,7 @@ android.allow_backup = True
 #
 
 # (str) python-for-android URL to use for checkout
-p4a.url =
+p4a.url = https://github.com/kivy/python-for-android
 
 # (str) python-for-android fork to use in case if p4a.url is not specified, defaults to upstream (kivy)
 #p4a.fork = kivy
@@ -292,7 +292,7 @@ p4a.url =
 #p4a.commit = HEAD
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
-#p4a.source_dir =
+# p4a.source_dir = home/bin/lisa/tutorial-env/lib/python3.6/site-packages
 
 # (str) The directory in which python-for-android should look for your own build recipes (if any)
 #p4a.local_recipes =
