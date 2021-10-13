@@ -28,7 +28,7 @@ jobs:
         id: buildozer
         with:
           repository_root: master
-          workdir: main
+          workdir: test_app
           buildozer_version: stable
 
       - name: Upload artifacts
