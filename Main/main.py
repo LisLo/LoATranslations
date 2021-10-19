@@ -1,13 +1,6 @@
 import os
 import sys
-# from typing import ContextManager, get_type_hints
-# import kivy
-# import Image
-# from kivy.uix.gridlayout import GridLayout
-# from kivy.uix.pagelayout import PageLayout
-# from kivy.uix.widget import Widget
-# from kivy.uix.image import Image
-# from kivy.graphics import Color, Rectangle
+
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
@@ -108,9 +101,8 @@ class StartApp(GetInput, App):
 
     def build(self):
         Window.clearcolor = (1, 1, 1, 1)
-        # print(self.A1)
+        print(self.A1)
         return ms
 
 
-if __name__ == "__main__":
-    StartApp().run()
+StartApp().run()
